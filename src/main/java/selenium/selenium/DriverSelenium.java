@@ -2,7 +2,10 @@ package selenium.selenium;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class DriverSelenium {
 
@@ -25,5 +28,10 @@ public abstract class DriverSelenium {
 		
 		System.out.println("Prueba finalizada");
 		
+	}
+	
+	public void esperarElementoEsteVisibleById(String id) {
+		final WebDriverWait wait = new WebDriverWait(this.driver, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(id))).click();
 	}
 }
